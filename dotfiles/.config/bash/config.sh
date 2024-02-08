@@ -7,7 +7,7 @@ export DELTA_PAGER="delta-pager"
 
 prompt() {
 	local -r PROMPT_MODULES="jobs,exit,cwd,git"
-	PS1="$($HOME/.local/bin/powerline-go -modules "${PROMPT_MODULES}" -newline --numeric-exit-codes -error $? -jobs $({ jobs -p -r; jobs -p -s; } | wc -l))"
+	PS1="$($HOME/.local/bin/powerline-go -modules "${PROMPT_MODULES}" -newline --numeric-exit-codes -error $? -jobs $(( $(jobs -p -r | wc -l) + $(jobs -p -s | wc -l) ))"
 }
 if [ "$TERM" != "linux" ] && [ -f "$HOME/.local/bin/powerline-go" ]
 then
