@@ -1,0 +1,29 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+cursorline = true
+color-modes = true
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+#parents = false
+#ignore = false
+#git-ignore = false
+#git-global = false
+#git-exclude = false
+#max-depth = 10
+
+[editor.lsp]
+display-inlay-hints = true
+
+[keys.normal]
+"del" = "delete_char_forward"
+C-q = "commit_undo_checkpoint"
+C-s = ":w"

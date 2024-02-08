@@ -1,0 +1,16 @@
+use-grammars = { except = ["gemini"] }
+
+[language-server.bitbake-lsp]
+command = "bitbake-language-server"
+
+[[language]]
+name = "bitbake"
+scope = "source.bb"
+file-types = ["bb", "bbappend", "bbclass", "inc", "conf"]
+roots = ["env-setup"]
+auto-format = false
+language-servers = [ { name = "bitbake-lsp", only-features = ["goto-definition", "hover", "completion"] } ]
+
+[[grammar]]
+name = "bitbake"
+source = { git = "https://github.com/amaanq/tree-sitter-bitbake", rev = "01ead542b1e6f52cc9a2c9c1c95e079702122161"}

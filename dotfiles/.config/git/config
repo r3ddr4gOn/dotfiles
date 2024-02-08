@@ -1,0 +1,77 @@
+[core]
+    pager = delta
+    sparsecheckout = true
+[push]
+	default = current
+	autoSetupRemote = true
+[pull]
+	rebase = true
+#[credential]
+#    helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[difftool]
+    prompt = false
+[mergetool]
+    prompt = false
+    keepBackup = false
+[rebase]
+    autosquash = true
+[rerere]
+    enabled = true
+    autoupdate = true
+[alias]
+    co = checkout
+    cp = cherry-pick
+    cpc = cherry-pick --continue
+    cpa = cherry-pick --abort
+    ci = commit
+    cia = commit -a
+    ciam = commit -am
+    cim = commit -m
+    cir = commit --reuse-message=HEAD@{1}
+    cif = commit --fixup
+    cifa = commit -a --fixup
+    st = status
+    stnu = status --untracked-files=no
+    d = diff
+    dno = diff --name-only
+    dc = diff --cached
+    l = log --oneline --graph --decorate --topo-order
+    la = l --all
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    p = push
+    pf = push --force-with-lease
+    rb = rebase
+    rbi = rebase -i
+    rbif = !GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash
+    rbc = rebase --continue
+    rba = rebase --abort
+    rs = reset
+    rsh = reset --hard
+    rss = reset --soft
+    cont = git tag --contains
+    conb = git branch --contains
+    rio=rebase -i origin/master
+    ro=rebase origin/master
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    line-numbers = true
+    map-styles = bold purple => syntax magenta, bold cyan => syntax blue
+[color "diff"]
+    whitespace = red reverse
+[color]
+    ui = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[advice]
+    detachedHead = false
