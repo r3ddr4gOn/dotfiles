@@ -1,0 +1,1 @@
+powershell.exe -ExecutionPolicy Unrestricted ./init_wsl.ps1
